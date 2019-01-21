@@ -26,16 +26,22 @@ public class PredictionOutcome {
     
     private double confidenceThreshold;
 
+    private int datasetSize;
+
+    private int dataSizeThreshold;
+
     private Map<String, Object> data;
     
     public PredictionOutcome() {
         this.present = false;
     }
 
-    public PredictionOutcome(double confidenceLevel, double confidenceThreshold, Map<String, Object> data) {
+    public PredictionOutcome(double confidenceLevel, double confidenceThreshold, int datasetSize, int dataSizeThreshold, Map<String, Object> data) {
         this.present = data != null;        
         this.confidenceLevel = confidenceLevel;
         this.confidenceThreshold = confidenceThreshold;
+        this.datasetSize = datasetSize;
+        this.dataSizeThreshold = dataSizeThreshold;
         this.data = data;
     }
 
@@ -44,8 +50,9 @@ public class PredictionOutcome {
     }
     
     public boolean isCertain() {
-        return this.present && confidenceLevel > confidenceThreshold;
+        return this.present && confidenceLevel > confidenceThreshold && this.datasetSize > this.dataSizeThreshold;
     }
+
 
     public double getConfidenceLevel() {
         return confidenceLevel;
