@@ -31,8 +31,12 @@ public class DoubleValue implements Value<Double> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         DoubleValue that = (DoubleValue) o;
         return Objects.equals(data, that.data);
     }

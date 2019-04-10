@@ -27,8 +27,12 @@ public class BooleanValue implements Value<Boolean> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         BooleanValue that = (BooleanValue) o;
         return Objects.equals(data, that.data);
     }

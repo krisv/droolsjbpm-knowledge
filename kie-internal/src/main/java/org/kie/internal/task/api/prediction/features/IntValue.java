@@ -31,8 +31,12 @@ public class IntValue implements Value<Integer> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         IntValue that = (IntValue) o;
         return Objects.equals(data, that.data);
     }
